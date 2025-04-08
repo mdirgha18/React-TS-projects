@@ -1,0 +1,10 @@
+.App {
+  font-family: sans-serif;
+  text-align: center;
+}
+.accordion-item + .accordion-item {
+  margin-top: 8px;
+}
+.accordion-title:hover {
+  background-color: #ddd;
+}
