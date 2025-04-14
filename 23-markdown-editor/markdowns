@@ -1,0 +1,27 @@
+*Italic text*
+_Italic text too_
+
+**Bold text**
+__Bold text too__
+
+**Bold and *italic* mixed**
+
+
+
+# Header 1
+## Header 2
+### Header 3
+#### Header 4
+##### Header 5
+###### Header 6
+
+
+
+- Item 1
+- Item 2
+  - Sub-item 2.1
+  - Sub-item 2.2
+- Item 3
+
+[Google](https://www.google.com)
+[Markdown Guide](https://www.markdownguide.org)
