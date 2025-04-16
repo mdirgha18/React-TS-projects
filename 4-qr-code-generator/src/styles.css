@@ -1,0 +1,27 @@
+.qr-wrapper {
+  max-width: 400px;
+  margin: 40px auto;
+  padding: 20px;
+  text-align: center;
+  border: 2px solid #ddd;
+  border-radius: 8px;
+  background: #fff;
+}
+
+input {
+  width: 80%;
+  padding: 10px;
+  font-size: 16px;
+  margin-bottom: 20px;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+}
+
+.qr-code {
+  margin-top: 20px;
+}
+
+.placeholder {
+  color: #888;
+  font-size: 16px;
+}
