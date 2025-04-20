@@ -1,0 +1,75 @@
+body {
+  margin: 0;
+  padding: 0;
+  font-family: "Fira Code", monospace;
+  background: linear-gradient(135deg, #fdfcfb, #e2d1c3);
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.timer-container {
+  background: #fffdf6;
+  border: 2px solid #ddd;
+  border-radius: 12px;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+  padding: 40px;
+  width: 300px;
+  text-align: center;
+  transition: all 0.3s ease;
+}
+
+.timer-container h1 {
+  font-size: 3rem;
+  margin: 10px 0 30px;
+  color: #333;
+  letter-spacing: 2px;
+}
+
+.timer-container h2 {
+  font-size: 1.2rem;
+  color: #888;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  margin-bottom: 10px;
+}
+
+.timer-container button {
+  margin: 0 5px;
+  padding: 10px 18px;
+  font-size: 0.9rem;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  background-color: #444;
+  color: white;
+  transition: background-color 0.2s ease;
+}
+
+.timer-container button:hover {
+  background-color: #222;
+}
+
+button {
+  background-color: #ff6347;
+  color: white;
+  border: none;
+  padding: 12px 20px;
+  margin: 10px;
+  font-size: 16px;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+button:hover {
+  background-color: #ff3b1f;
+  transform: scale(1.05);
+}
+
+button.active {
+  transform: scale(0.95);
+  background-color: #e52d0d;
+}
