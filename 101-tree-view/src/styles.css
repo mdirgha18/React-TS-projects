@@ -1,0 +1,45 @@
+.tree-view {
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  font-size: 14px;
+  padding: 1rem;
+  background-color: #fdfdfd;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  width: fit-content;
+  max-width: 400px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+}
+
+.tree-node {
+  margin-left: 1rem;
+  position: relative;
+}
+
+.tree-label {
+  cursor: pointer;
+  padding: 4px 8px;
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  border-radius: 4px;
+  transition: background-color 0.2s;
+}
+
+.tree-label:hover {
+  background-color: #f0f0f0;
+}
+
+.arrow {
+  font-size: 12px;
+  display: inline-block;
+  width: 16px;
+  text-align: center;
+  color: #666;
+}
+
+.tree-children {
+  margin-left: 1rem;
+  border-left: 1px dashed #ccc;
+  padding-left: 0.5rem;
+  margin-top: 4px;
+}
