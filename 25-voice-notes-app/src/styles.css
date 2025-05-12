@@ -1,28 +1,33 @@
+/* Body Styling */
 body {
-  font-family: Arial, sans-serif;
-  text-align: center;
-  padding: 20px;
+  font-family: Arial, sans-serif; /* Setting a clean and readable font */
+  text-align: center; /* Aligning content to the center */
+  padding: 20px; /* Adding padding around the body */
 }
 
+/* Button Styling */
 button {
-  padding: 10px 20px;
-  font-size: 16px;
-  cursor: pointer;
-  margin: 10px;
+  padding: 10px 20px; /* Giving the button some padding */
+  font-size: 16px; /* Setting the font size of the button text */
+  cursor: pointer; /* Changing the cursor to a pointer to indicate it's clickable */
+  margin: 10px; /* Adding some space around the button */
 }
 
+/* Unordered List Styling */
 ul {
-  list-style-type: none;
-  padding: 0;
+  list-style-type: none; /* Removing default bullet points */
+  padding: 0; /* Removing the default padding */
 }
 
+/* List Item Styling */
 li {
-  background-color: #f1f1f1;
-  margin: 10px 0;
-  padding: 10px;
-  border-radius: 5px;
+  background-color: #f1f1f1; /* Light grey background for list items */
+  margin: 10px 0; /* Adding margin to space out list items */
+  padding: 10px; /* Adding padding inside each list item */
+  border-radius: 5px; /* Rounding the corners of the list item */
 }
 
+/* Heading 2 Styling */
 h2 {
-  color: #333;
+  color: #333; /* Dark grey color for the heading */
 }
