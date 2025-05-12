@@ -1,39 +1,45 @@
+/* Basic styling for the main App container */
 .App {
-  font-family: Arial, sans-serif;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  flex-direction: column;
-  padding: 20px;
+  font-family: Arial, sans-serif; /* Using Arial font for the app */
+  display: flex; /* Using flexbox layout */
+  justify-content: center; /* Centering content horizontally */
+  align-items: center; /* Centering content vertically */
+  flex-direction: column; /* Aligning items in a vertical column */
+  padding: 20px; /* Adding padding around the app */
 }
 
+/* Container for holding both the editor and preview side by side */
 .container {
-  display: flex;
-  gap: 20px;
-  margin-top: 20px;
+  display: flex; /* Using flexbox to align items horizontally */
+  gap: 20px; /* Adding space between the editor and preview */
+  margin-top: 20px; /* Adding space above the container */
 }
 
+/* Styling for the editor and preview sections */
 .editor,
 .preview {
-  border: 1px solid #ccc;
-  padding: 20px;
-  width: 300px;
-  height: 400px;
-  overflow-y: auto;
+  border: 1px solid #ccc; /* Light grey border around editor and preview */
+  padding: 20px; /* Padding inside the editor and preview */
+  width: 300px; /* Fixed width for both editor and preview */
+  height: 400px; /* Fixed height for both editor and preview */
+  overflow-y: auto; /* Enabling vertical scrolling if content overflows */
 }
 
+/* Styling for the textarea (editor input) */
 textarea {
-  width: 100%;
-  height: 100%;
-  font-family: monospace;
-  font-size: 14px;
+  width: 100%; /* Making the textarea take up the full width */
+  height: 100%; /* Making the textarea take up the full height */
+  font-family: monospace; /* Using a monospace font for the text editor */
+  font-size: 14px; /* Setting the font size */
 }
 
+/* Styling for the main heading */
 h1 {
-  font-size: 24px;
+  font-size: 24px; /* Larger font size for the main heading */
 }
 
+/* Styling for the subheading in the editor and preview */
 h2 {
-  font-size: 18px;
-  margin-bottom: 10px;
+  font-size: 18px; /* Font size for the subheading */
+  margin-bottom: 10px; /* Adding space below the subheading */
 }
