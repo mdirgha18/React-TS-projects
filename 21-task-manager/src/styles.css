@@ -1,90 +1,103 @@
+/* Body styles */
 body {
-  margin: 0;
-  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
-  background-color: #f5f7fa;
-  color: #333;
+  margin: 0; /* Removing default margin */
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif; /* Setting the font family */
+  background-color: #f5f7fa; /* Light grey background color */
+  color: #333; /* Dark grey text color */
 }
 
+/* Container styles for the task manager */
 .container {
-  max-width: 600px;
-  margin: 3rem auto;
-  padding: 2rem;
-  background-color: #ffffff;
-  border-radius: 12px;
-  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+  max-width: 600px; /* Limiting the container width */
+  margin: 3rem auto; /* Centering the container and adding vertical spacing */
+  padding: 2rem; /* Adding padding inside the container */
+  background-color: #ffffff; /* White background color */
+  border-radius: 12px; /* Rounded corners */
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08); /* Light shadow for a subtle 3D effect */
 }
 
+/* Heading styles */
 h1 {
-  text-align: center;
-  margin-bottom: 2rem;
-  font-size: 1.8rem;
-  color: #222;
+  text-align: center; /* Centering the heading */
+  margin-bottom: 2rem; /* Adding bottom margin */
+  font-size: 1.8rem; /* Setting font size */
+  color: #222; /* Dark text color */
 }
 
+/* Form container styles */
 form {
-  display: flex;
-  gap: 1rem;
-  margin-bottom: 2rem;
+  display: flex; /* Using flexbox for layout */
+  gap: 1rem; /* Adding space between input and button */
+  margin-bottom: 2rem; /* Bottom margin for spacing */
 }
 
+/* Input field styles */
 input[type="text"] {
-  flex: 1;
-  padding: 0.75rem 1rem;
-  border: 1px solid #ccc;
-  border-radius: 8px;
-  font-size: 1rem;
-  transition: border-color 0.2s;
+  flex: 1; /* Making input field take up available space */
+  padding: 0.75rem 1rem; /* Adding padding inside the input */
+  border: 1px solid #ccc; /* Light grey border */
+  border-radius: 8px; /* Rounded corners */
+  font-size: 1rem; /* Setting font size */
+  transition: border-color 0.2s; /* Smooth border color transition on focus */
 }
 
+/* Focus state for the input */
 input[type="text"]:focus {
-  border-color: #4a90e2;
-  outline: none;
+  border-color: #4a90e2; /* Blue border when input is focused */
+  outline: none; /* Removing the default outline */
 }
 
+/* Button styles */
 button {
-  padding: 0.75rem 1.2rem;
-  border: none;
-  background-color: #4a90e2;
-  color: white;
-  border-radius: 8px;
-  cursor: pointer;
-  font-weight: bold;
-  transition: background-color 0.2s;
+  padding: 0.75rem 1.2rem; /* Padding for button */
+  border: none; /* Removing border */
+  background-color: #4a90e2; /* Blue background color */
+  color: white; /* White text color */
+  border-radius: 8px; /* Rounded corners */
+  cursor: pointer; /* Changing cursor to pointer */
+  font-weight: bold; /* Making button text bold */
+  transition: background-color 0.2s; /* Smooth transition for background color */
 }
 
+/* Button hover effect */
 button:hover {
-  background-color: #3d7cd1;
+  background-color: #3d7cd1; /* Darker blue background on hover */
 }
 
+/* List styles */
 ul {
-  list-style: none;
-  padding: 0;
-  margin: 0;
+  list-style: none; /* Removing default list bullets */
+  padding: 0; /* Removing padding */
+  margin: 0; /* Removing margin */
 }
 
+/* List item styles */
 li {
-  background-color: #f9f9f9;
-  padding: 0.75rem 1rem;
-  border-radius: 8px;
-  margin-bottom: 0.75rem;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  transition: background-color 0.3s;
+  background-color: #f9f9f9; /* Light grey background for tasks */
+  padding: 0.75rem 1rem; /* Padding inside the list items */
+  border-radius: 8px; /* Rounded corners */
+  margin-bottom: 0.75rem; /* Space between tasks */
+  display: flex; /* Using flexbox for layout */
+  justify-content: space-between; /* Space between task text and buttons */
+  align-items: center; /* Vertically centering the items */
+  transition: background-color 0.3s; /* Smooth background color transition */
 }
 
+/* Styles for completed tasks */
 li.completed {
-  background-color: #e6f7e6;
-  text-decoration: line-through;
-  color: #999;
+  background-color: #e6f7e6; /* Light green background for completed tasks */
+  text-decoration: line-through; /* Strikethrough text */
+  color: #999; /* Grey text for completed tasks */
 }
 
+/* Button container inside list items */
 li div button {
-  margin-left: 0.5rem;
-  background-color: #e0e0e0;
-  color: #333;
+  margin-left: 0.5rem; /* Adding space between buttons */
+  background-color: #e0e0e0; /* Light grey background for delete/undo buttons */
+  color: #333; /* Dark grey text color */
 }
 
+/* Hover effect for buttons inside list items */
 li div button:hover {
-  background-color: #d5d5d5;
+  background-color: #d5d5d5; /* Slightly darker grey on hover */
 }
