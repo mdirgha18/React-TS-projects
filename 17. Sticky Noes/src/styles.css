@@ -1,13 +1,15 @@
+/* Basic reset for the body element */
 body {
-  margin: 0;
-  font-family: sans-serif;
+  margin: 0; /* Remove default margin */
+  font-family: sans-serif; /* Set a default sans-serif font */
 }
 
+/* Style for the main app container */
 .app-container {
-  position: relative;
-  width: 100vw;
-  height: 100vh;
-  padding: 1rem;
-  background: #f0f0f0;
-  overflow: hidden;
+  position: relative; /* Set position to relative for absolute positioning of child elements */
+  width: 100vw; /* Set width to 100% of the viewport width */
+  height: 100vh; /* Set height to 100% of the viewport height */
+  padding: 1rem; /* Add 1rem padding around the content */
+  background: #f0f0f0; /* Set light gray background */
+  overflow: hidden; /* Prevent content from overflowing out of the container */
 }
