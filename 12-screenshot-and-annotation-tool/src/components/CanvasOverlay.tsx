@@ -3,33 +3,36 @@ import { Annotation, Point } from "../types/Annotation";
 import { v4 as uuidv4 } from "uuid";
 
 type Props = {
-  tool: "select" | "rect" | "text";
+  tool: "select" | "rect" | "text"; // Tool currently selected by the user
 };
 
 export default function CanvasOverlay({ tool }: Props) {
-  const [selectedId, setSelectedId] = useState<string | null>(null);
-  const [isDragging, setIsDragging] = useState(false);
-  const [annotations, setAnnotations] = useState<Annotation[]>([]);
-  const [isDrawing, setIsDrawing] = useState(false);
-  const startRef = useRef<Point | null>(null);
-  const containerRef = useRef<HTMLDivElement>(null);
+  const [selectedId, setSelectedId] = useState<string | null>(null); // Tracks selected annotation ID
+  const [isDragging, setIsDragging] = useState(false); // Flag for dragging mode
+  const [annotations, setAnnotations] = useState<Annotation[]>([]); // List of all annotations
+  const [isDrawing, setIsDrawing] = useState(false); // Flag for drawing rectangles
+  const startRef = useRef<Point | null>(null); // Starting point for drawing or dragging
+  const containerRef = useRef<HTMLDivElement>(null); // Ref for the container div
 
+  // Handle mouse down event for initiating drawing, text entry, or selection
   const handleMouseDown = (e: React.MouseEvent) => {
     const bounds = containerRef.current?.getBoundingClientRect();
-
     if (!bounds) return;
 
+    // Get mouse position relative to container
     const point: Point = {
       x: e.clientX - bounds.left,
       y: e.clientY - bounds.top,
     };
 
     if (tool === "rect") {
+      // Start drawing rectangle
       startRef.current = point;
       setIsDrawing(true);
     }
 
     if (tool === "text") {
+      // Add new text annotation at clicked point
       const newAnnotation: Annotation = {
         id: uuidv4(),
         type: "text",
@@ -41,6 +44,7 @@ export default function CanvasOverlay({ tool }: Props) {
     }
 
     if (tool === "select") {
+      // Check if user clicked inside an annotation to select it
       const clicked = annotations.find((a) => {
         const left = Math.min(a.start.x, a.end.x);
         const right = Math.max(a.start.x, a.end.x);
@@ -64,9 +68,11 @@ export default function CanvasOverlay({ tool }: Props) {
         setSelectedId(null);
       }
     }
+
     console.log("Tool is", tool);
   };
 
+  // Handle mouse up event for completing rectangle drawing
   const handleMouseUp = (e: React.MouseEvent) => {
     if (!isDrawing || tool !== "rect" || !startRef.current) return;
 
@@ -78,6 +84,7 @@ export default function CanvasOverlay({ tool }: Props) {
       y: e.clientY - bounds.top,
     };
 
+    // Create new rectangle annotation
     const newAnnotation: Annotation = {
       id: uuidv4(),
       type: "rect",
@@ -91,6 +98,7 @@ export default function CanvasOverlay({ tool }: Props) {
     startRef.current = null;
   };
 
+  // Handle mouse move event for dragging annotations
   const handleMouseMove = (e: React.MouseEvent) => {
     if (!isDragging || !selectedId || !startRef.current) return;
 
@@ -102,9 +110,11 @@ export default function CanvasOverlay({ tool }: Props) {
       y: e.clientY - bounds.top,
     };
 
+    // Calculate movement delta
     const dx = curr.x - startRef.current.x;
     const dy = curr.y - startRef.current.y;
 
+    // Update position of the selected annotation
     setAnnotations((prev) =>
       prev.map((a) =>
         a.id === selectedId
@@ -117,8 +127,10 @@ export default function CanvasOverlay({ tool }: Props) {
       )
     );
 
+    // Update reference point for next drag step
     startRef.current = curr;
   };
+
   return (
     <div
       ref={containerRef}
@@ -128,8 +140,10 @@ export default function CanvasOverlay({ tool }: Props) {
       onMouseUp={handleMouseUp}
       onMouseMove={handleMouseMove}
     >
+      {/* Render all annotations */}
       {annotations.map((ann) => {
         if (ann.type === "rect") {
+          // Calculate dimensions and position
           const left = Math.min(ann.start.x, ann.end.x);
           const top = Math.min(ann.start.y, ann.end.y);
           const width = Math.abs(ann.end.x - ann.start.x);
@@ -145,7 +159,7 @@ export default function CanvasOverlay({ tool }: Props) {
                 width,
                 height,
                 border: "2px solid red",
-                pointerEvents: "none",
+                pointerEvents: "none", // Prevents interfering with mouse events
               }}
             />
           );
@@ -165,6 +179,7 @@ export default function CanvasOverlay({ tool }: Props) {
                 border: "1px solid #333",
               }}
               onChange={(e) => {
+                // Update text as user types
                 const newText = e.target.value;
                 setAnnotations((prev) =>
                   prev.map((a) =>
