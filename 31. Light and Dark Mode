@@ -1,0 +1,59 @@
+
+import React, { useState, useEffect } from "react";
+import "./styles.css";
+
+const App: React.FC = () => {
+  const [isDarkMode, setIsDarkMode] = useState<boolean>(false);
+  const toggleMode = () => setIsDarkMode((prev) => !prev);
+
+  useEffect(() => {
+    const savedMode = localStorage.getItem("dark-mode") === "true";
+    setIsDarkMode(savedMode);
+  }, []);
+
+  useEffect(() => {
+    localStorage.setItem("dark-mode", isDarkMode.toString());
+  }, [isDarkMode]);
+
+  return (
+    <div className={isDarkMode ? "dark-mode" : "light-mode"}>
+      <button onClick={toggleMode}>
+        {isDarkMode ? "Light Mode" : "Dark Mode"}
+      </button>
+      <h1>Hello, {isDarkMode ? "Night Owl" : "Sunshine"}</h1>
+    </div>
+  );
+};
+
+export default App;
+
+// styles.css
+
+body {
+  margin: 0;
+  font-family: sans-serif;
+  transition: all 0.3s ease;
+}
+
+.dark-mode {
+  background-color: #121212;
+  color: white;
+  min-height: 100vh;
+  padding: 2rem;
+  transition: all 0.3s ease;
+}
+
+.light-mode {
+  background-color: white;
+  color: black;
+  min-height: 100vh;
+  padding: 2rem;
+  transition: all 0.3s ease;
+}
+
+button {
+  padding: 0.5rem 1rem;
+  font-size: 1rem;
+  margin-bottom: 1rem;
+  cursor: pointer;
+}
