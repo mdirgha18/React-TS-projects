@@ -1,0 +1,24 @@
+
+import React, { useState } from "react";
+const App: React.FC = () => {
+  const tabs = [
+    { label: "Home", content: "Welcome to the homepage!" },
+    { label: "Profile", content: "This is your profile." },
+    { label: "Settings", content: "Adjust your preferences here." },
+  ];
+  const [activeTab, setActiveTab] = useState<number>(0);
+
+  return (
+    <div>
+      <div>
+        {tabs.map((tab, index) => (
+          <button key={index} onClick={() => setActiveTab(index)}>
+            {tab.label}
+          </button>
+        ))}
+      </div>
+      <p>{tabs[activeTab].content}</p>
+    </div>
+  );
+};
+export default App;
