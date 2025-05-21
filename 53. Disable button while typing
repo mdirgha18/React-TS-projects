@@ -1,0 +1,26 @@
+import React, { useState, useEffect } from "react";
+const App: React.FC = () => {
+  const [input, setInput] = useState<string>("");
+  const [isTyping, setIsTyping] = useState<boolean>(false);
+  const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    setInput(e.target.value);
+  };
+  useEffect(() => {
+    setIsTyping(true);
+    const timeout = setTimeout(() => {
+      setIsTyping(false);
+    }, 1000);
+    return () => clearTimeout(timeout);
+  }, [input]);
+  return (
+    <div>
+      <input
+        value={input}
+        onChange={handleChange}
+        placeholder="Type something..."
+      />
+      <button disabled={isTyping}>Submit</button>
+    </div>
+  );
+};
+export default App;
