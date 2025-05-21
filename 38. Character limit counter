@@ -1,0 +1,36 @@
+import React, { useState } from "react"; // ✅ Import useState
+import "./styles.css";
+
+const App: React.FC = () => {
+  const [text, setText] = useState<string>(""); // ✅ State for input text
+  const MAX_LENGTH = 50;
+
+  // ✅ Handle input change
+  const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    setText(e.target.value);
+  };
+
+  const isTooLong = text.length > MAX_LENGTH;
+  const isEmpty = text.trim() === "";
+
+  return (
+    <div className="dark-mode">
+      <input
+        type="text"
+        value={text}
+        onChange={handleChange}
+        placeholder="Type something..."
+      />
+
+      <button disabled={isTooLong || isEmpty}>Submit</button>
+
+      <p>
+        Characters: {text.length}/{MAX_LENGTH}
+      </p>
+
+      {isTooLong && <p style={{ color: "red" }}>Too Long!</p>}
+    </div>
+  );
+};
+
+ export default App;
