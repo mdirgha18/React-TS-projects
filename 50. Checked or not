@@ -1,0 +1,17 @@
+import React, { useState } from "react";
+
+const App: React.FC = () => {
+  const [checked, setChecked] = useState<boolean>(false);
+  return (
+    <div>
+      <input
+        type="checkbox"
+        checked={checked}
+        onChange={() => setChecked((prev) => !prev)}
+      />
+      <p>{checked ? "checked" : "Not checked"}</p>
+    </div>
+  );
+};
+
+export default App;
