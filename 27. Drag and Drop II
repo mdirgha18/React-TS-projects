@@ -1,0 +1,62 @@
+import React, { useState } from "react";
+
+const App: React.FC = () => {
+  const [items, setItems] = useState<string[]>([
+    "Apple",
+    "Banana",
+    "Orange",
+    "Grapes",
+    "Mango",
+  ]);
+
+  const [dragIndex, setDragIndex] = useState<number | null>(null);
+  const handleDragStart = (index: number) => {
+    setDragIndex(index);
+  };
+
+  const handleDragOver = (e: React.DragEvent<HTMLLIElement>) => {
+    e.preventDefault();
+  };
+
+  const handleDrop = (dropIndex: number) => {
+    if (dragIndex === null || dragIndex == dropIndex) return;
+
+    const updatedItems = [...items];
+    const draggedItem = updatedItems[dragIndex];
+
+    updatedItems.splice(dragIndex, 1);
+    updatedItems.splice(dropIndex, 0, draggedItem);
+
+    setItems(updatedItems);
+    setDragIndex(null);
+  };
+
+  return (
+    <div style={{ padding: "1rem" }}>
+      <h2>Drag and Drop list</h2>
+      <ul style={{ listStyle: "none", padding: 0 }}>
+        {items.map((item, index) => (
+          <li
+            key={index}
+            draggable
+            onDragStart={() => handleDragStart(index)}
+            onDragOver={handleDragOver}
+            onDrop={() => handleDrop(index)}
+            style={{
+              margin: "8px 0",
+              padding: "10px",
+              background: dragIndex === index ? "#d1e7dd" : "#f8f9ga",
+              border: "1px solid #ccc",
+              borderRadius: "4px",
+              cursor: "move",
+            }}
+          >
+            {item}
+          </li>
+        ))}
+      </ul>
+    </div>
+  );
+};
+
+export default App;
