@@ -1,0 +1,31 @@
+import React, { useState, useEffect } from "react";
+
+const App: React.FC = () => {
+  const [count, setCount] = useState<number>(0);
+  const [isRunning, setIsRunning] = useState<boolean>(false);
+
+  useEffect(() => {
+    let timer: NodeJS.Timeout;
+
+    if (isRunning && count > 0) {
+      timer = setTimeout(() => setCount((prev) => prev - 1), 1000);
+    } else if (count === 0) {
+      setIsRunning(false);
+    }
+    return () => clearTimeout(timer);
+  }, [isRunning, count]);
+
+  const startCountDown = () => {
+    setCount(10);
+    setIsRunning(true);
+  };
+  return (
+    <div>
+      <p>Countdown : {count}</p>
+      <button onClick={startCountDown} disabled={isRunning}>
+        Start Countdown
+      </button>
+    </div>
+  );
+};
+export default App;
