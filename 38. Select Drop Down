@@ -1,0 +1,29 @@
+import React, { useState } from "react";
+
+const App: React.FC = () => {
+  // State to hold selected color
+  const [color, setColor] = useState<string>("");
+
+  // Handle selection changes
+  const handleChange = (e: React.ChangeEvent<HTMLSelectElement>) => {
+    setColor(e.target.value);
+  };
+
+  return (
+    <div>
+      {/* Dropdown menu */}
+      <label htmlFor="colorSelect">Choose a color:</label>
+      <select id="colorSelect" value={color} onChange={handleChange}>
+        <option value="">-- Select --</option>
+        <option value="Red">Red</option>
+        <option value="Green">Green</option>
+        <option value="Blue">Blue</option>
+      </select>
+
+      {/* Show result when a color is selected */}
+      {color && <p>You selected: {color}</p>}
+    </div>
+  );
+};
+
+export default App;
