@@ -1,0 +1,35 @@
+import React, { useState } from "react";
+
+const App: React.FC = () => {
+  const [input, setInput] = useState<string>("");
+
+  // Handles input changes
+  const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    setInput(e.target.value); // ✅ Correct usage
+  };
+
+  // Handles button click
+  const handleSubmit = () => {
+    console.log("Submitted:", input);
+    setInput(""); // ✅ Clear input after submit
+  };
+
+  return (
+    <div>
+      <input
+        type="text"
+        value={input} // ✅ Correct variable
+        onChange={handleChange} // ✅ Correct handler
+        placeholder="Type something..."
+      />
+      <button
+        disabled={input.trim() === ""} // ✅ Button disabled if input is empty
+        onClick={handleSubmit}
+      >
+        Submit
+      </button>
+    </div>
+  );
+};
+
+export default App;
